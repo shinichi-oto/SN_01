@@ -64,3 +64,14 @@
     pymysql.connect(host='127.0.0.1', port=3306,
                            user='root', password='<password>',
                            db='mysql', charset='utf8mb4')
+                           
+## SITE_LOGIN
+    
+    <ID>       : LOGIN_ID
+    <PASSWORD> : LOGIN_PASSWORD
+    
+    def getURLBS_a(self, pageUrl):
+        session = requests.Session()
+        params = {'email': '<ID>', 'password': '<password>'}
+        session.post('<LOGIN:URL>', data=params)
+        ...
