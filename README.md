@@ -1,17 +1,20 @@
 # Crawler_System
 
 ## 説明
----
->このクローラは指定サイト内のタイトル、テキストを取得し、SQLサーバに格納します*1。
->形式通りにサイトのTitle,ContentTAG,URLを指定した .xlsx ファイルからの読み込み可能
->*1 : 指定してある形式通りにSLQを構築しておかなければ動作しません。
----
+- このクローラは指定サイト内のタイトル、テキストを取得し、SQLサーバに格納します*1。
+- 形式通りにサイトのTitle,ContentTAG,URLを指定した .xlsx ファイルからの読み込み可能
+- クローリング速度はコード上2秒に設定してありますが、対象サイトのサーバー負荷を考慮して10秒前後に設定した方がよいです*2。
+- システム内にTransformerを使用した翻訳及び要約システムを導入してあります。メインシステムに適用してあるTransformerはhuggingfaceを使用したシステムであり、要約はPegusus、翻訳はmbert-mtmを使用してありますが、Transformerディレクトリ内に英日Vocab作成class,マルチヘッドアテンション機構構築classがありますので、GPUが使用できる環境及び翻訳テキストコーパスを所持している場合に実行可能となっています。このディレクトリ内にある[テキストコーパス](http://www.manythings.org/anki/)は8万程しかありませんので効果量は低いです。
+- *1 : 事前にSQLサーバのSTART及び、指定してある形式通りにSLQを構築しておかなければ動作しません。
+- *2 : 高速でクローリングすると対象サイトへの負荷に繋がり、場合によってはIPlock、法的措置を講じられる場合がありますので高速クローリングはお勧めしません。
+
 ## 機能
-> $ python console.py <arg> start
-> -m    : マルチクローリング可能なメインクローラシステム
-> -s    : 対象サイト内でのサーチ,　WordCloud対応
-> -n    : NgramSystem
-> -nsum : NgramSummarySystem, Transformer、Pegusus-xsum(抽象型モデル)を使用した要約に対応
-> -nj   : NgtamSystem日本語翻訳対応、　mbart-large-50-many-to-manyを使用
-> -ns   : -nsum -nj を同時実行する。つまり、出力される要約を日本語へ翻訳する。これは環境によって動作が非常に遅い。
----
+-  $ python console.py <arg> start
+-  -m    : マルチクローリング可能なメインクローラシステム
+-  -s    : 対象サイト内でのサーチ
+-  -n    : NgramSystem, WordCloud対応
+-  -nsum : NgramSummarySystem, Transformer、Pegusus-xsum(抽象型モデル)を使用した要約に対応
+-  -nj   : NgtamSystem日本語翻訳対応、　mbart-large-50-many-to-manyを使用
+-  -ns   : -nsum -nj を同時実行する。つまり、出力される要約を日本語へ翻訳する。これは環境によって動作が非常に遅い。
+
+  
