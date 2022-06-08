@@ -26,3 +26,10 @@
     news_categories : id(int NO PRI NULL auto_increment) category_tag(varchar(200) NO NULL)
     middle_table    : id(int NO PRI NULL auto_increment) country_code(int NO NULL) website_id(int NO NULL) nwes_categories(int NO NULL)
     page_url        : id(bigint NO NULL auto_incremetnt) url(varchar(200) NO NULL)    
+
+## 仮想環境ライブラリ
+
+    - Anaconda
+    .ymlファイルを使用して仮想環境の構築を行ってください。
+    
+    $ conda create -n <env> -f <file>.yml
