@@ -33,3 +33,28 @@
     .ymlファイルを使用して仮想環境の構築を行ってください。
     
     $ conda create -n <env> -f <file>.yml
+
+## SITE_TAG
+
+    COUTRY     : COUNTRY
+    SITE       : SITE_NAME
+    URL        : WEB_SITE_URL
+    CONT       : SITE_TAG_CONTENT_CATEGORIE
+    TAG T      : TITLE_TAG
+    TAG C      : CONTENT_TAG
+    SEARCHURL  : WEB_SITE_SEARCH_URFL
+    
+    siteData = [
+        ['<COUNTRY>', '<SITE>', '<URL>', '^(/<CONT>/)', False,
+        '<TAG: T>', '<TAG: C>'],
+    ]
+
+
+    searchSiteData = [
+        ['<SEARCH:URL>', '<TAG>',
+        '<TAG:SEARCH>', False, '<URL>',
+        '<TAG: T>', '<TAG: C>'
+        ],
+    ]
+    
+    
