@@ -17,4 +17,11 @@
 -  -nj   : NgtamSystem日本語翻訳対応、　mbart-large-50-many-to-manyを使用
 -  -ns   : -nsum -nj を同時実行する。つまり、出力される要約を日本語へ翻訳する。これは環境によって動作が非常に遅い。
 
-  
+## SQL Table
+- DATABASE        : Webscraping
+- website         : id(int NO PRI NULL auto_increment) middle_table_id(int NO NULL) title(varchar(300) YES NULL) content(mediumtext YES NULL) timestamp(timestamp YES NULL) created(timestamp YES NULL CURRENT_TIMESTAMP DEFAULT_GENERATED) url(varchar(300) YES NULL)
+- country_code    : id(int No PRI NULL auto_increment) country(varchar(200) NO PRI NULL)
+- website_id      : id(int NO PRI NULL auto_increment) website_name(varchar(200) NO NULL) web_URL(varchar(200) NO NULL)
+- news_categories : id(int NO PRI NULL auto_increment) category_tag(varchar(200) NO NULL)
+- middle_table    : id(int NO PRI NULL auto_increment) country_code(int NO NULL) website_id(int NO NULL) nwes_categories(int NO NULL)
+- page_url        : id(bigint NO NULL auto_incremetnt) url(varchar(200) NO NULL)
